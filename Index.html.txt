@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>BCDEV224 | Développeur Web Freelance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth;}
+  body { background:#0f172a; color:white; line-height:1.6; }
+  a { color:#3b82f6; text-decoration:none; }
+  header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; background:linear-gradient(135deg,#0f172a,#1e293b); }
+  header h1 { font-size:3rem; animation:fadeInDown 1s ease forwards; opacity:0;}
+  header p { margin-top:10px; color:#94a3b8; font-size:1.2rem; animation:fadeInUp 1s ease forwards; opacity:0; animation-delay:0.5s; }
+  .btn { margin-top:20px; padding:12px 25px; background:#3b82f6; color:white; border-radius:8px; transition:0.3s; animation:fadeIn 1s ease forwards; animation-delay:1s; opacity:0;}
+  .btn:hover { background:#2563eb; }
+  section { padding:80px 20px; max-width:1000px; margin:auto; }
+  h2 { margin-bottom:40px; text-align:center; font-size:2rem; position:relative; }
+  h2::after { content:''; display:block; width:60px; height:3px; background:#3b82f6; margin:10px auto 0; border-radius:2px; }
+  .projects, .skills { display:grid; gap:20px; justify-items:center; }
+  .projects { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .card, .skill { background:#1e293b; padding:20px; border-radius:15px; transition:0.3s; text-align:center; opacity:0; transform:translateY(30px); }
+  .card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(59,130,246,0.3); }
+  .skills { grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); }
+  footer { text-align:center; padding:30px; background:#020617; margin-top:50px; color:#94a3b8; }
+  @keyframes fadeInDown { to { opacity:1; transform:translateY(0); } from { opacity:0; transform:translateY(-30px);} }
+  @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } from { opacity:0; transform:translateY(30px);} }
+  @keyframes fadeIn { to { opacity:1;} from { opacity:0;} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Salut, je suis BCDEV224</h1>
+  <p>Développeur Web Freelance | HTML • CSS • JavaScript</p>
+  <a href="#contact" class="btn">Me contacter</a>
+</header>
+
+<section>
+  <h2>À propos</h2>
+  <p style="text-align:center;">
+    Je suis passionné par le développement web et je crée des sites modernes, rapides et responsives pour entreprises et entrepreneurs.
+  </p>
+</section>
+
+<section>
+  <h2>Compétences</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Responsive Design</div>
+    <div class="skill">Git</div>
+    <div class="skill">Bootstrap</div>
+  </div>
+</section>
+
+<section>
+  <h2>Projets</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Site Restaurant</h3>
+      <p>Site vitrine moderne et responsive pour un restaurant local.</p>
+    </div>
+    <div class="card">
+      <h3>Landing Page Coach</h3>
+      <p>Page optimisée pour convertir des visiteurs en clients.</p>
+    </div>
+    <div class="card">
+      <h3>To-Do App JS</h3>
+      <p>Application JavaScript avec LocalStorage et filtres avancés.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p style="text-align:center;">
+    Email : <a href="mailto:bangalyc526@gmail.com">bangalyc526@gmail.com</a>
+  </p>
+</section>
+
+<footer>
+  © 2026 BCDEV224 | Développeur Web Freelance
+</footer>
+
+<script>
+  // Animation des cartes et skills au scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold:0.1 });
+
+  document.querySelectorAll('.card, .skill').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
